@@ -1,0 +1,60 @@
+body{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(45deg, rgb(0, 41, 107), rgb(0, 80, 157));
+    animation: gradient 7s ease infinite;
+    background-size: 200% 200%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    color: aliceblue;
+    padding: 20px;
+    font-size: 80px;
+    position: absolute;
+    top: 100px;
+    left: 425px;
+}
+button{
+    height: 35px;
+    border-radius: 25% 10%;
+    border: solid aliceblue;
+    background-color: aliceblue;
+    position: fixed;
+    top: 350px;
+}
+input{
+    height: 20px;
+    position: fixed;
+    top: 300px;
+}
+.emitir{
+    display: flex;
+    flex-direction:column-reverse;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 400px;
+    margin-bottom: 10px;
+    position: fixed;
+    background-color: none;
+    height: 350px;
+    width: 864px;
+    content: "";
+}

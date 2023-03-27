@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco Manuel</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Banco Manuel</h1><br>
+    <input type="text" id ="valor" placeholder="Valor" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+    <button  id="sacar" onclick="Sacar();"> SACAR </button><br>
+    <div class="emitir" id="emitir">
+    <div class="resultado" id="resultado"> </div>
+    </div>
+</body>
+
+    <Script>
+        function Sacar() {
+            v = parseInt(valor.value);
+            valor.value = "";
+
+            while(v>=200){
+                resultado.innerHTML += "<img src='imgs/duzentos.jpg' width='100px'> &nbsp";
+                v = v - 200;
+            }
+            while(v>=100){
+                resultado.innerHTML += "<img src='imgs/cem.jpg' width='100px'> &nbsp";
+                v = v - 100;
+            }
+            while(v>=50){
+                resultado.innerHTML += "<img src='imgs/cinquenta.jpg' width='100px'> &nbsp";
+                v = v - 50;
+            }
+            while(v>=20){
+                resultado.innerHTML += "<img src='imgs/vinte.jpg' width='100px'> &nbsp";
+                v = v - 20;
+            }
+            while(v>=10){
+                resultado.innerHTML += "<img src='imgs/dez.jpg' width='100px'> &nbsp";
+                v = v - 10;
+            }
+            while(v>=5 && (v+1)%5 == 0){
+                resultado.innerHTML += "<img src='imgs/cinco.jpg' width='100px'> &nbsp";
+                v = v - 5;
+            }
+            while(v>=2){
+                resultado.innerHTML += "<img src='imgs/dois.jpg' width='100px'> &nbsp";
+                v = v - 2;
+            }
+        }
+
+        const button = document.getElementById("sacar")
+
+        button.addEventListener("dblclick", event => {
+        console.log("Double-click detected")
+        // Double-click detected
+            emitir.innerHTML = "";
+        })
+    
+
+    </Script>
+</html>
