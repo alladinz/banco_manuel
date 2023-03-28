@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+  </head>
+
+  <style>
+    .jogo {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  margin: auto;
+}
+
+.quadrado {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  font-size: 64px;
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+}
+
+  </style>
+  <body>
+    <div class="jogo">
+      <div class="quadrado" onclick="jogar(this, 0, 0)"></div>
+      <div class="quadrado" onclick="jogar(this, 0, 1)"></div>
+      <div class="quadrado" onclick="jogar(this, 0, 2)"></div>
+      <div class="quadrado" onclick="jogar(this, 1, 0)"></div>
+      <div class="quadrado" onclick="jogar(this, 1, 1)"></div>
+      <div class="quadrado" onclick="jogar(this, 1, 2)"></div>
+      <div class="quadrado" onclick="jogar(this, 2, 0)"></div>
+      <div class="quadrado" onclick="jogar(this, 2, 1)"></div>
+      <div class="quadrado" onclick="jogar(this, 2, 2)"></div>
+    </div>
+    <script src="jogo.js"></script>
+  </body>
+  <script>
+    const JOGADOR_X = 'X';
+const JOGADOR_O = 'O';
+
+let jogadorAtual = JOGADOR_X;
+let jogoAcabou = false;
+let tabuleiro = [
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']
+];
+
+function jogar(quadrado, linha, coluna) {
+  if (!jogoAcabou && tabuleiro[linha][coluna] === '') {
+    tabuleiro[linha][coluna] = jogadorAtual;
+    quadrado.textContent = jogadorAtual;
+    quadrado.classList.add(jogadorAtual);
+    
+    verificarVitoria();
+    
+    jogadorAtual = (jogadorAtual === JOGADOR_X) ? JOGADOR_O : JOGADOR_X;
+  }
+}
+
+function verificarVitoria() {
+  for (let i = 0; i < 3; i++) {
+    if (tabuleiro[i][0] === tabuleiro[i][1] && tabuleiro[i][1] === tabuleiro[i][2] && tabuleiro[i][0] !== '') {
+      jogoAcabou = true;
+      alert(`Jogador ${jogadorAtual} venceu!`);
+      break;
+    }
+    if (tabuleiro[0][i] === tabuleiro[1][i] && tabuleiro[1][i] === tabuleiro[2][i] && tabuleiro[0][i] !== '') {
+      jogoAcabou = true;
+      alert(`Jogador ${jogadorAtual} venceu!`);
+    }
+  }
+}
+  </script>
+</html>
